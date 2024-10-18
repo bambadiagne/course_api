@@ -1,0 +1,20 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+enum Level {
+  DEBUTANT
+  INTERMEDIAIRE
+  AVANCE
+}
+model Course{
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  level Level
+}
